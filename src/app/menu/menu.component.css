@@ -1,0 +1,28 @@
+ 
+.card {
+    
+    margin: 10px 30px 10px 30px !important;
+ }
+ .img-thumbnail {
+     
+     border: 1px solid #ffffff; 
+ }
+ 
+ .btn-menu{
+     height: 120px;
+ }
+ 
+ .card-title{
+ margin-top: -25px
+ }
+ 
+ 
+ .titulo-empresa{
+     padding-bottom: 15px;
+     color: #0e314e;
+ }
+ 
+ .simple-text{
+     text-transform: none !important;
+ }
+

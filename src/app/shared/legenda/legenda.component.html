@@ -1,0 +1,25 @@
+<div class="row logus-row">
+  <div class=" col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <ul class="list-observacoes">
+          <li class="li-legenda">
+              <strong>Legenda</strong>
+          </li>
+          <li *ngIf="registroAtivo" class="li-legenda">
+              <strong class="item-ativo">ABC</strong> -
+              <span>Registro ativo<span  *ngIf="duploClick">, duplo click na linha para carregar edição</span></span>
+          </li>
+          <li  *ngIf="registroExcluido" class="li-legenda">
+              <strong class="item-exluido">ABC</strong> -
+              <span>Registro excluído</span>
+          </li>
+          <li *ngIf="registroInativo" class="li-legenda">
+              <strong class="item-inativo">ABC</strong> -
+              <span>Registro inativo</span>
+          </li>
+          <li class="li-legenda">
+            <strong class="item-ativo"> <i class="item-icone fa fa-ellipsis-v"></i></strong> -
+            <span>Ações para manipular registro</span>
+        </li>
+      </ul>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+<!-- Mensagem de sobreposição.-->
+<p-toast life="10000" [style]="{marginTop: '55px'}"></p-toast>
+ 
+
+<!-- Mensagem de confirmação -->
+<span *ngIf="confirmDialog">
+    <p-confirmDialog header="Confirmação" icon="fa fa-question-circle" acceptLabel="Sim" rejectLabel="Não" rejectButtonStyleClass="costelaButton"></p-confirmDialog>
+</span>
+
+<!-- Info carregando -->
+<app-carregando [hidden]="!exibirCarregando"></app-carregando>
+

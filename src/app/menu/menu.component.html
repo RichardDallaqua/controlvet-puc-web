@@ -1,0 +1,115 @@
+<div class="sidebar" data-color="green" data-background-color="green">
+
+  <div class="logo">
+   
+    <a href="#" class="simple-text logo-normal">
+      <i class="fa fa-paw"></i> ControlVet
+    </a>
+  </div>
+  <div class="sidebar-wrapper">
+    <ul class="nav">
+
+      <li class="nav-item  active">
+        <a class="nav-link collapsed" data-toggle="collapse" href="#mapAtendimento" aria-expanded="false">
+          <i class="material-icons"></i>
+          <p> Gestão de Atendimentos  
+            <b class="caret"></b>
+          </p>
+        </a>
+        <div class="collapse" id="mapAtendimento">
+          <ul class="nav">
+            <li class="nav-item" routerLinkActive="active">
+              <a class="nav-link" href="#" [routerLink]="['/agendamento']">
+                <span class="sidebar-mini"> </span>
+                <span class="sidebar-normal"> Agendamento </span>
+              </a>
+            </li>
+            <li class="nav-item " routerLinkActive="active">
+              <a class="nav-link" href="#" [routerLink]="['/consulta']">
+                <span class="sidebar-mini"> </span>
+                <span class="sidebar-normal"> Consulta </span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="nav-item  active">
+        <a class="nav-link collapsed" data-toggle="collapse" href="#mapCadastro" aria-expanded="false">
+          <i class="material-icons"></i>
+          <p> Cadastros
+            <b class="caret"></b>
+          </p>
+        </a>
+
+        <div class="collapse" id="mapCadastro">
+          <ul class="nav">
+            <li class="nav-item" routerLinkActive="active" *ngIf="acessaUsuario">
+              <a class="nav-link" href="#" [routerLink]="['/usuario']">
+                <span class="sidebar-mini"> </span>
+                <span class="sidebar-normal"> Usuários </span>
+              </a>
+            </li>
+            <li class="nav-item " routerLinkActive="active" *ngIf="acessaPerfil">
+              <a class="nav-link" href="#" [routerLink]="['/perfil']">
+                <span class="sidebar-mini"> </span>
+                <span class="sidebar-normal"> Perfis </span>
+              </a>
+            </li>
+            <li class="nav-item " routerLinkActive="active" *ngIf="acessaProcedimento">
+              <a class="nav-link" href="#" [routerLink]="['/procedimento']">
+                <span class="sidebar-mini"> </span>
+                <span class="sidebar-normal"> Procedimentos </span>
+              </a>
+            </li>
+            <li class="nav-item " routerLinkActive="active" *ngIf="acessaProduto">
+              <a class="nav-link" href="#" [routerLink]="['/produto']">
+                <span class="sidebar-mini"> </span>
+                <span class="sidebar-normal"> Produtos </span>
+              </a>
+            </li>
+            <li class="nav-item " routerLinkActive="active" *ngIf="acessaSala">
+              <a class="nav-link" href="#" [routerLink]="['/sala']">
+                <span class="sidebar-mini"> </span>
+                <span class="sidebar-normal"> Salas </span>
+              </a>
+            </li>
+            <li class="nav-item " routerLinkActive="active" *ngIf="acessaTutor">
+              <a class="nav-link" href="#" [routerLink]="['/tutor']">
+                <span class="sidebar-mini"> </span>
+                <span class="sidebar-normal"> Tutor </span>
+              </a>
+            </li>            
+          </ul>
+        </div>
+      </li>
+
+      <li class="nav-item  active">
+        <a class="nav-link collapsed" data-toggle="collapse" href="#mapRelatorio" aria-expanded="false">
+          <i class="material-icons"></i>
+          <p> Relatórios
+            <b class="caret"></b>
+          </p>
+        </a>
+
+        <div class="collapse" id="mapRelatorio">
+          <ul class="nav">
+            <li class="nav-item" routerLinkActive="active">
+              <a class="nav-link" href="#" [routerLink]="['/relatorio-atendimento']">
+                <span class="sidebar-mini"> </span>
+                <span class="sidebar-normal"> Atendimento </span>
+              </a>
+            </li>
+
+            <li class="nav-item" routerLinkActive="active">
+              <a class="nav-link" href="#" [routerLink]="['/relatorio-financeiro']">
+                <span class="sidebar-mini"> </span>
+                <span class="sidebar-normal"> Financeiro </span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </li>      
+    </ul>
+  </div>
+</div>

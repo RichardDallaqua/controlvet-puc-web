@@ -1,0 +1,17 @@
+.footer {
+    font-size: 12px;
+    background: none repeat scroll 0 0 white;
+    border-top: 1px solid #e7eaec;
+    bottom: 0;
+    left: 0;
+    padding: 0px 20px;
+    position: fixed;
+    right: 0;
+    z-index: 6;
+}
+
+.versao{
+    font-size: 9px;
+    padding-top: 19px;
+}
+ 

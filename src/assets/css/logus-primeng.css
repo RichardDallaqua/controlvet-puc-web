@@ -1,0 +1,42 @@
+.ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default.ui-state-active.ui-state-disabled {
+    background: #b3b3b3;
+    border: 1px solid #f4f4f4;
+    color: #0000006e;
+    cursor: not-allowed !important;
+}
+
+
+.ui-radiobutton-box.ui-widget.ui-state-default.ui-state-active.ui-state-disabled {
+    background: #b3b3b3;
+    border: 1px solid #40404087;
+    color: #0000006e;
+    cursor: not-allowed !important;
+}
+
+button.ui-spinner-button.ui-spinner-up.ui-corner-tr.ui-button.ui-widget.ui-state-default.ui-state-disabled{
+    background: #b3b3b3;
+    border: 1px solid #40404087;
+    color: #0000006e;
+    cursor: not-allowed !important;
+} 
+
+button.ui-spinner-button.ui-spinner-down.ui-corner-br.ui-button.ui-widget.ui-state-default.ui-state-disabled{
+    background: #b3b3b3;
+    border: 1px solid #40404087;
+    color: #0000006e;
+    cursor: not-allowed !important;
+}
+
+
+/* .ng-tns-c4-4.ui-panel-titlebar.ui-widget-header.ui-helper-clearfix.ui-corner-all.ng-star-inserted{
+    background: #3a3a3a45;
+    cursor: not-allowed;
+    color: #0006;
+}
+
+div#ui-panel-4 {
+ 
+    background: #3a3a3a42;
+    cursor: not-allowed;
+    color: #0006;
+} */

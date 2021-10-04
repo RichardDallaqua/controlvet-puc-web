@@ -1,0 +1,448 @@
+/* Diversos */
+
+body{
+	background-color: #f4f2f6; 
+  }
+  
+  .btn-cancelar{
+	margin-right: 15px;
+  }
+  
+  .titulo-tela{
+	font-size: 30px;color: #525252;
+	font-family: Quicksand;
+  } 
+  .sub-titulo-tela{
+	margin-top: 0px;
+	margin-bottom: 10px;
+	font-size: 16px;
+	color: #696767;    
+	margin-left: 30px;
+  }
+  
+  .error{
+	font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+	font-size: 13px;
+	color: #d60e0a;
+  }
+  
+  .error-radion-buttom{  
+	display: -webkit-inline-box;
+  }
+  
+  /* Prime NG */
+  .ng-star-inserted .ui-radiobutton-label{
+	margin-bottom: 0px !important;
+  } 
+  
+  .ui-inputtext {     
+	padding: 6px; 
+	border-radius: 0px !important;
+	width: 100%;
+  }
+  
+  .ui-calendar {
+	position: relative;
+	display: inline;
+  }
+  
+  .ui-radiobutton, .ui-radiobutton-label {
+	vertical-align: middle;
+	margin-bottom: 0px !important;
+  }
+  
+  .ui-multiselect .ui-multiselect-label {
+	padding: 6px 0px 0px 11px;
+	height: 23px;
+  }
+  
+  .ui-multiselect .ui-multiselect-trigger .fa {
+	margin-top: 10px; 
+  }
+  
+  .ui-multiselect-panel .ui-multiselect-item label {
+	padding-top: 6px;
+	margin-bottom: 4px;
+  }
+  
+  
+  .ask-obrigatorio{
+	padding-top: 3px;
+	padding-left: 3px;
+	/* position: absolute; */
+  }
+  
+  .form{
+	margin-top: 10px !important;
+  }
+  
+  .form-group-btn{
+	margin-top: 20px !important;
+  }
+  
+  .table-alterar{
+	width: 60px;
+	text-align: center !important;
+  }
+  
+  .requiredInput{
+	border-bottom:1px solid red; 
+  }
+   
+  .form{
+	margin-top: 30px;
+  }
+   
+  
+  .table-alterar{
+	width: 5%;
+	text-align: center;
+  }
+  
+  .uppercase{
+	text-transform:uppercase
+  }
+  
+  .lowercase{
+	text-transform:lowercase
+  }
+  
+  .table-empty{
+	text-align: center;
+	padding: 5px !important;
+  }
+  
+  .table-alterar{
+	width: 60px;
+	text-align: center;
+  }
+  
+  .align-text-center{
+	text-align: center;
+  }
+  
+  .align-text-right{
+	text-align: right;
+  }
+  
+  @media only screen and (max-width: 1024px){
+  
+	.float-right {
+		  float: none !important;
+	  }
+	  
+  }
+  
+  tbody > tr > td {
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+	font-size: 13px;
+  }
+  
+  thead > tr > th {
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+	font-size: 13px;
+  }
+  
+  .disabled-account-row {
+	color: #000 !important;
+	background: #e8d4d4 !important;
+	border: 1px solid #c1bcbc !IMPORTANT;
+  }
+  
+  /* .ui-chkbox .ui-chkbox-box{
+	margin-bottom: 10px !important;
+  } */
+  
+  .ui-growl { 
+	top: 75px !important; 
+	width: 25em !important;
+  }
+   
+  .borda-filtro{
+	border-top: 1px solid #cec3c3a8;
+	border-radius: 2px;
+	box-shadow: 0px 3px 8px #b3b1b1;
+	margin-left: 0px;
+	margin-top: 10px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+  }
+  
+  .filtro{
+	background-color: #e6e6e64f;
+	font-family: Quicksand;
+	padding: 7px 15px 7px 5px;
+	cursor: pointer;
+  }
+  
+  .filtro-pesquisa{
+	font-size: 19px;
+  }
+  
+  .filtro-refinar{
+	font-size: 12px;color:#444444
+  }
+  
+  .ui-dropdown .ui-dropdown-trigger .fa {
+	padding-top: 5px;
+  }
+  
+  .ui-dropdown .ui-dropdown-label {
+	height: 32px;
+	border-radius: 0px !important;
+	padding-top: 9px;
+  }
+  
+  .ui-dropdown-panel .ui-dropdown-item:not(.ui-state-highlight):hover { 
+	background: #c5c5c5; 
+  }
+  
+  .btn-voltar {
+	margin-top: 10px;
+  }
+  
+  .div-filtro-label {
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+  }
+  
+  .form-control, .ui-widget {
+	font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+	font-size: 13px;
+  }
+  
+  .ui-growl-message{
+	font-size: 15px !important;
+  }
+  
+  
+  .ui-messages-detail{
+	background-color: #ffe9b5;
+	  padding: 50px 19px 13px 1px;
+	  margin-bottom: -1pc;
+	  margin-top: -3pc;
+	  margin-right: 1pc;
+  }
+  
+  .btn-pesquisar{
+	 padding-bottom: 16px;
+	 /*margin-top: -27px !important;*/
+   }
+   
+  
+   .btn-icon{
+	 font-size: 15px;
+   }
+  
+  
+   .ui-growl-item { 
+	z-index: 10954 !important;
+  }
+   
+  .ui-chkbox-label{
+  margin-bottom: 1px;
+  }
+  
+  .form-group-checkbox{
+	margin-top: 34px;
+  }
+  
+  .form-group-checkbox-sem-espaco{
+	margin-top: 15px;
+  }
+  
+  .form-group-checkbox-sem-espaco label.ui-chkbox-label {
+	color: #161616 !important;
+  }
+  
+  .form-group{
+	margin-bottom: 0px !important;
+	padding-bottom: 0px !important;
+  }
+  
+  label.ui-chkbox-label {    
+	color: #ff0000 !important; 
+  }
+  
+  .form-group-checkbox label.ui-chkbox-label {
+	color: #161616 !important;
+  }
+  
+  
+  /* p-calendar.ng-trigger-overlayAnimation{
+	position: initial !important;
+  } */
+  .pi-circle-on {
+	font-size: 8px;
+  }
+  
+  .ui-growl-icon-close {
+	font-size: 22px;
+  } 
+  
+  /* Show priority 6 at 1,120px (70em x 16px) */
+  @media screen and (max-width: 1721px) {
+	th.esconde-coluna,
+	td.esconde-coluna {
+		display: none;
+	} 
+  } 
+  
+  .td-overflow-initial {
+	  
+	overflow: initial !important; 
+  }  
+  
+  .text-line-through{
+	  text-decoration:line-through !important;
+  } 
+   
+   
+  ul.list-observacoes {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	font-family: "open sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 13px;
+  }
+  /* 
+  .li-legenda{
+	  margin-top: 7px;
+  }
+  
+  .item-inativo{
+	  background-color: #e8d4d4;
+	  border: 1px solid #d5d5d5;
+	  padding: 3px;
+  }
+  
+  .item-exluido{
+	   
+	  border: 1px solid #d5d5d5;
+	  padding: 3px;
+  }  */
+  
+  
+  
+  /* 
+  
+  .btn-action {
+	font-size: 19px !important;
+	padding: 0px 10px 0px 10px !important;
+	height: 18px;
+  background-color: #fff0;
+  margin-top: -10px;
+  color: #1f89ce;
+  }
+  .dropdown-menu{
+  box-shadow: #00000061 3px 3px 19px
+  }
+  
+  .li-action{
+  margin-top: 12px;
+	margin-left: 4px;
+   
+  }
+  
+  .link-action {
+  padding: 5px 15px 5px 5px;
+	
+	border-radius: 2px;
+	color: #000000 !important;
+   
+  white-space: nowrap;
+  margin-right: 12px;
+  }
+  
+  .link-action:hover {	
+	box-shadow: #00000038 1px 1px 6px;
+	background-color: #d9d9d985;
+	border: 1px solid #8d8d8d4d;
+  margin-right: 10px !important;
+  }
+  */
+   .icon-action{
+	margin-right: 8px;
+	margin-bottom: 2px;
+	margin-left: -15px;  
+  }  
+   
+  
+  .btn-action {
+	font-size: 19px !important;  
+  }
+  .dropdown-menu{
+	box-shadow: #00000061 3px 3px 19px
+  }
+  
+  .ul-action{
+	/* margin-bottom: 23px !important;  */
+	margin-bottom: -4px !important; 
+  }
+  
+  .dropdown, .dropleft, .dropright, .dropup {
+	/* position: absolute !important; */
+	position: initial !important;
+	  text-align: center;
+  }
+  
+  .navbar-nav .nav-link {   
+	padding-top: 0px;
+  }
+  
+  .dropdown-menu .dropdown-item:hover, .dropdown-menu .dropdown-item:focus, .dropdown-menu a:hover, .dropdown-menu a:focus, .dropdown-menu a:active {
+	 background-color: #007bff; 
+	 color: #fff !important;
+  }
+  
+  .left-excluido{
+	margin-left: 10px;
+  }
+  
+  .ui-inputtext {
+	height: 35px;
+  }
+  
+  
+  .ui-dropdown .ui-dropdown-label {
+	height: 33px;
+  }
+  
+  .form-control {  
+	height: 34px;
+  }
+  
+  @media screen and (min-width: 650px) {
+	.ui-table .ui-table-thead>tr , .ui-table .ui-table-tbody>tr>td, .ui-table .ui-table-tfoot>tr>td {
+	  padding: 1px 8px;
+	  font-size: 12px;
+	}
+  }
+  @media screen and (max-width: 640px) {
+	  td.table-acao {
+		  font-size: 34px;
+	  background-image: linear-gradient(to bottom left, #efefef63, #cacaca1a );
+	  border-radius: 2px;
+	  box-shadow: 5px -3px 20px 1px rgba(92, 92, 92, 0.25);
+	  border-radius: 4px;
+	  }
+  
+	  .icon-action-first {
+		  font-size: 25px;	 
+	}
+	
+	table .ui-table-tbody>tr>td, .ui-table .ui-table-tfoot>tr>td {
+	  padding: 4px 9px;
+	  font-size: 15px;
+	}
+  }
+  
+  
+  

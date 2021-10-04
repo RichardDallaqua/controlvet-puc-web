@@ -1,0 +1,4 @@
+.main-panel {
+   transition-property: width;
+   transition-delay: 20ms;
+}

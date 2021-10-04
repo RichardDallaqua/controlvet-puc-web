@@ -1,0 +1,57 @@
+@media screen and (min-width: 1060px) {
+    #left-content {
+        background-image: url('./../../assets/img/login-bg2.png');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: auto;        
+        width: 100; 
+        height: 100vh;
+        float: left;
+    }
+
+    #right-content {
+        padding: 20vh 10vw 20vh 10vw;
+        background-color: #CDEACD;
+        height: 100vh;
+        width: 100; 
+        box-shadow: -2px 1px 8px 2px rgba(73, 73, 73, 0.06);
+        float: right;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    #left-content {
+        display: none;
+    }
+    
+    #right-content {
+        padding: 30vh 10vw 30vh 10vw;
+        background-color: #CDEACD;
+        height: 100vh;
+    }
+}
+
+#logo {
+    margin: 0px 0px 20px 0px;
+    width: 200px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#right-content input {
+    margin-bottom: 15px;
+}
+
+#right-content .ui-button {
+    background-color: #FFC15A;
+    border: 0px;
+    font-weight: 600;
+    width: 100%;
+    font-family: Roboto,"Trebuchet MS",Arial,Helvetica,sans-serif;
+    font-size: 1em;
+}
+
+
+
+

@@ -1,0 +1,328 @@
+<!-- Titulo da tela.-->
+<app-titulo-tela [titulo]="'Tutor'" [subTitulo]="titulo"></app-titulo-tela>
+
+<div class="form" [hidden]="!exibirConsulta">
+    <div class="row borda-filtro" >
+        <div class="col-lg-12 filtro" data-toggle="collapse" data-target="#filtroPesquisa" >
+            <div class="float-right">
+                <small class="filtro-pesquisa">Filtros para Pesquisa ↓
+                </small>
+            </div>
+        </div>
+        <div class="col-lg-12 collapse" id="filtroPesquisa">
+            <div class="row ">
+                <div class="col-xl-3">
+                    <div class="form-group">
+                        Nome
+                        <input type="text" class="form-control" [(ngModel)]="pesquisa.nomeFiltro" name="nomeFiltro" id="nomeFiltro">
+                        <span id="nomeProdutorFiltro-error" class="error"></span>
+                    </div>
+                </div>
+                <div class="col-xl-4">
+                    <div class="form-group-checkbox">
+                        <p-checkbox name="exibeInativosFiltro" [(ngModel)]="pesquisa.exibeInativosFiltro" value="Exibir Inativos" binary="true"></p-checkbox> Exibir desativados 
+                    </div>
+                </div>              
+            </div>
+            <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 btn-pesquisar">
+                <div class="form-group-btn">
+                    <hr>
+                    <button type="button" (click)="btnPesquisar()"  class="btn btn-primary btn float-right">Pesquisar</button>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="form">
+        <div class="col-lg-12">
+            <div class="row">
+                <p-table class="grid1" selectionMode="single" [value]="gridVo" [columns]="colunas" [responsive]="true"
+                    emptyMessage="Não existem registros!" [paginator]="true" [rows]="10"
+                    sortMode="multiple">
+                    <ng-template pTemplate="header" let-columns>
+                        <tr class="align-text-center">
+                            <th *ngFor="let col of columns" pTooltip="{{col.header}}" tooltipPosition="top"> 
+                                {{col.header}}  
+                                <p-sortIcon [field]="col.field" ariaLabel="Activate to sort" ariaLabelDesc="Activate to sort in descending order"
+                                    ariaLabelAsc="Activate to sort in ascending order"></p-sortIcon>
+                            </th>
+                            <th style="width: 70px;" class="table-alterar">Ações</th>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-gridVo let-columns="columns">
+                        <tr class="{{(gridVo.dataDesativacao == null ? '' : 'disabled-account-row')}}">
+                            <td (dblclick)="btnAlterarDados(gridVo)" tooltipPosition="top">{{gridVo.id}}</td>
+                            <td (dblclick)="btnAlterarDados(gridVo)" tooltipPosition="top">{{gridVo.nome}}</td>         
+                            <td (dblclick)="btnAlterarDados(gridVo)" tooltipPosition="top"> {{gridVo.dataCadastro}}</td>   
+                            <td class="table-acao">
+                                <ul class="navbar-nav ul-action">
+                                    <li class="nav-item dropdown">
+                                        <div class="btn-action" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                                            aria-haspopup="true" aria-expanded="false">
+                                            <i class="icon-action-first fa fa-ellipsis-v"></i>
+                                        </div>
+                                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                                            <a class="dropdown-item" (click)="btnAtivarRemoverDados(gridVo)">
+                                                <i class="icon-action fa fa-thumbs-{{(gridVo.dataDesativacao == null ? 'down' : 'up')}}"></i>{{(gridVo.dataDesativacao
+                                                == null ? 'Desativar' : 'Ativar')}}</a>
+                                            <a class="dropdown-item" (click)="btnAlterarDados(gridVo)"> <i class="icon-action fa fa-pencil-square-o"></i>Editar</a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="emptymessage" let-gridVo let-columns="columns">
+                        <tr [attr.colspan]="gridVo">
+                            <td [colSpan]="4" class="table-empty">
+                                Não existem registros!
+                            </td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <hr>
+                <div class="form-group-btn">
+                    <button type="button" (click)="btnNovoDados()" class="btn btn-primary btn float-right">Novo</button>
+                    <button type="button" (click)="btnGridCSV()" class="btn btn-primary btn btn-cancelar float-right">Gerar CSV</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>    
+
+
+<div class="form" [hidden]="!exibirEdicao">
+    <div class="row">
+        <div class="col-xl-4">
+            <div class="form-group">
+                <label>Nome
+                    <span class="ask-obrigatorio">*</span>
+                </label>
+                <input pTooltip="Nome" type="text" maxlength="30" [(ngModel)]="modelTutor.nome" class="form-control" placeholder="Nome" name="nome" id="nome" #nome>
+                <span id="nome-error" class="error"></span>
+            </div>
+        </div>
+        <div class="col-xl-2">
+            <div class="form-group">
+                <label>Telefone 
+                    <span class="ask-obrigatorio">*</span>
+                </label>
+                <input pTooltip="Telefone" type="text" mask="(00) 00000-0000" [(ngModel)]="modelTutor.telefone" class="form-control" placeholder="(99)99999-9999" name="Telefone" id="telefone" #telefone>
+                <span id="telefone-error" class="error"></span>
+            </div>
+        </div>
+        <div class="col-xl-6">
+            <div class="form-group">
+                <label>E-Mail</label>
+                <input pTooltip="email" type="text" [(ngModel)]="modelTutor.email" class="form-control" placeholder="e-mail" name="email" id="email" #email>
+                <span id="email-error" class="error"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xl-8">
+            <div class="form-group">
+                <label>Endereço
+                    <span class="ask-obrigatorio">*</span>
+                </label>
+                <input pTooltip="Endereco" type="text" [(ngModel)]="modelTutor.endereco" class="form-control" placeholder="Endereço" name="endereco" id="endereco" #endereco>
+                <span id="endereco-error" class="error"></span>
+            </div>
+        </div>
+        <div class="col-xl-2">
+            <div class="form-group">
+                <label>CPF</label>
+                <input pTooltip="cpf" type="text" mask="000.000.000-00" [(ngModel)]="modelTutor.cpf" class="form-control" placeholder="CPF" name="cpf" id="cpf" #cpf>
+                <span id="cpf-error" class="error"></span>
+            </div>
+        </div>
+        <div class="col-xl-2">
+            <div class="form-group">
+                <label>Data Nascimento</label>
+                <input pTooltip="dataNascimento" type="text" mask="00/00/0000" [dropSpecialCharacters]="false" [(ngModel)]="modelTutor.dataNascimento" class="form-control" placeholder="DD/MM/YYYY" 
+                    name="dataNascimento" id="dataNascimento" #datanascimento>
+                <span id="dataNascimento-error" class="error"></span>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row form-group-btn-adicionar" style="margin-top: 55px">
+        <div class="col-lg-10">
+            <div class="tim-typo">
+                <span class="tim-note" style="font-size: 26px;font-family: Quicksand;">Animais do Tutor</span>
+            </div>
+        </div>
+        <div class="col-lg-2" *ngIf="exibirGridAnimal">
+            <div class="tim-typo">
+                <button type="button" inputId="btnAdicionarAnimal" id="btnAdicionarAnimal" name="btnAdicionarAnimal" (click)="btnAdicionarAnimal()"
+                    class="btn btn-primary btn float-right">Adicionar</button>
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <div class="tim-typo">
+                <hr>
+            </div>
+        </div>
+    </div>
+
+    <div class="form" *ngIf="exibirGridAnimal">
+        <div class="col-lg-12">
+            <div class="row">
+                <p-table class="grid2" selectionMode="single" [value]="animalGridVo" [columns]="colunasAnimal" [responsive]="true"
+                    emptyMessage="Não existem registros!" [paginator]="true" [rows]="10"
+                    sortMode="multiple">
+                    <ng-template pTemplate="header" let-columns>
+                        <tr class="align-text-center">
+                            <th *ngFor="let col of columns" pTooltip="{{col.header}}" tooltipPosition="top"> 
+                                {{col.header}}  
+                                <p-sortIcon [field]="col.field" ariaLabel="Activate to sort" ariaLabelDesc="Activate to sort in descending order"
+                                    ariaLabelAsc="Activate to sort in ascending order"></p-sortIcon>
+                            </th>
+                            <th style="width: 70px;" class="table-alterar">Ações</th>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-animalGridVo let-columns="columns">
+                        <tr class="{{(animalGridVo.dataDesativacao == null ? '' : 'disabled-account-row')}}">
+                            <td (dblclick)="btnAlterarDadosAnimal(animalGridVo)" tooltipPosition="top">{{animalGridVo.nome}}</td>
+                            <td (dblclick)="btnAlterarDadosAnimal(animalGridVo)" tooltipPosition="top">{{animalGridVo.raca}}</td>
+                            <td (dblclick)="btnAlterarDadosAnimal(animalGridVo)" tooltipPosition="top"> {{animalGridVo.sexo == 1 ? 'Macho' : 'Fêmea'}}</td>            
+                            <td (dblclick)="btnAlterarDadosAnimal(animalGridVo)" tooltipPosition="top"> {{animalGridVo.especie == 1 ? 'Canideo' : 'Felino'}}</td>            
+                            <td (dblclick)="btnAlterarDadosAnimal(animalGridVo)" tooltipPosition="top">{{animalGridVo.peso}}</td>
+                            <td (dblclick)="btnAlterarDadosAnimal(animalGridVo)" tooltipPosition="top"> {{animalGridVo.dataNascimento}}</td>            
+                            <td class="table-acao">
+                                <ul class="navbar-nav ul-action">
+                                    <li class="nav-item dropdown">
+                                        <div class="btn-action" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                                            aria-haspopup="true" aria-expanded="false">
+                                            <i class="icon-action-first fa fa-ellipsis-v"></i>
+                                        </div>
+                                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                                            <a class="dropdown-item" (click)="btnRemoverAnimal(animalGridVo)">
+                                                <i class="icon-action fa fa-thumbs-{{(animalGridVo.dataDesativacao == null ? 'down' : 'up')}}"></i>Remover</a>
+                                        <a class="dropdown-item" (click)="btnAlterarDadosAnimal(animalGridVo)"> <i class="icon-action fa fa-pencil-square-o"></i>Editar</a>                                                 
+                                        </div>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="emptymessage" let-gridVo let-columns="columns">
+                        <tr [attr.colspan]="itensGridVo">
+                            <td [colSpan]="7" class="table-empty">
+                                Não existem registros!
+                            </td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" *ngIf="exibirGridAnimal">
+        <div class="col-lg-12">
+            <hr>
+            <div class="form-group-btn">
+                <button type="button" (click)="btnSalvarDados()" class="btn btn-primary btn float-right">Salvar</button>
+                <button type="button" (click)="btnVoltarTelaPrincipal()" class="btn btn-secondary btn btn-cancelar float-right">Voltar</button>
+                <button type="button" (click)="btnGridCSVAnimal()" class="btn btn-primary btn btn-cancelar float-left">Gerar CSV</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" *ngIf="!exibirGridAnimal">
+        <div class="col-xl-4">
+            <label>Nome
+                <span class="ask-obrigatorio">*</span>
+            </label>
+            <input pTooltip="nome" type="text" [(ngModel)]="modelAnimal.nome" class="form-control" placeholder="Nome" name="nome" id="nome" #nome>
+            <span id="nome-error" class="error"></span>
+        </div>
+        <div class="col-xl-2">
+            <label>Raça
+                <span class="ask-obrigatorio">*</span>
+            </label>
+            <input pTooltip="raca" type="text" [(ngModel)]="modelAnimal.raca" class="form-control" placeholder="Raca" name="raca" id="raca" #raca>
+            <span id="raca-error" class="error"></span>
+        </div>
+
+        <div class="col-xl-2">
+            <label>Peso
+                <span class="ask-obrigatorio">*</span>
+            </label>
+            <input pTooltip="peso" type="text" [(ngModel)]="modelAnimal.peso" mask="separator.3" thousandSeparator="." [dropSpecialCharacters]="false" 
+                   class="form-control" placeholder="0.000" name="peso" id="peso" #raca>
+            <span id="peso-error" class="error"></span>
+        </div>
+
+        <div class="col-xl-2">
+            <label>Data Nascimento
+                <span class="ask-obrigatorio">*</span>
+            </label>
+            <input pTooltip="dataNascimento" type="text" mask="00/00/0000" [dropSpecialCharacters]="false" [(ngModel)]="modelAnimal.dataNascimento" 
+                   class="form-control" placeholder="DD/MM/YYYY" name="dataNascimento" id="dataNascimento" #dataNascimento>
+            <span id="dataNascimento-error" class="error"></span>
+        </div>
+
+        <div class="col-xl-1">
+            <div class="form-group">
+                <label>Sexo:</label>
+                <div class="usi-g" style="width:250px;margin-bottom:10px">
+                    <div class="ui-g-4">
+                        <p-radioButton pTooltip="Macho" name="sexo"
+                            label="Macho" value="1" [(ngModel)]="modelAnimal.sexo" inputId="opt1"></p-radioButton>
+                    </div>
+                    <div class="ui-g-4">
+                        <p-radioButton pTooltip="Fêmea" name="sexo"
+                            label="Fêmea" value="2" [(ngModel)]="modelAnimal.sexo" inputId="opt2"></p-radioButton>
+                    </div>
+                </div>
+                <span id="sexo-error" class="error error-radion-buttom"></span>
+            </div>
+        </div>
+        <div class="col-xl-1">
+            <div class="form-group">
+                <label>Especie:</label>
+                <div class="usi-g" style="width:250px;margin-bottom:10px">
+                    <div class="ui-g-4">
+                        <p-radioButton pTooltip="Canideo" name="tipo"
+                            label="Canideo" value="1" [(ngModel)]="modelAnimal.especie" inputId="opt1"></p-radioButton>
+                    </div>
+                    <div class="ui-g-4">
+                        <p-radioButton pTooltip="Felino" name="tipo"
+                            label="Felino" value="2" [(ngModel)]="modelAnimal.especie" inputId="opt2"></p-radioButton>
+                    </div>
+                </div>
+                <span id="especie-error" class="error error-radion-buttom"></span>
+            </div>
+        </div>
+    </div>
+    <div class="row" *ngIf="!exibirGridAnimal">
+
+
+    </div>
+
+    <div class="row" *ngIf="!exibirGridAnimal">
+        <div class="col-lg-12">
+            <hr>
+            <div class="form-group-btn">
+                <button type="button" (click)="btnSalvarDadosAnimal()" class="btn btn-primary btn float-right">Salvar</button>
+                <button type="button" (click)="btnVoltarAnimal()" class="btn btn-secondary btn btn-cancelar float-right">Voltar</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- Mensagem de sobreposição.-->
+<!-- Mensagem de confirmação -->
+<!-- Info carregando -->
+<app-componente-basico [msg]="msgs" [exibirCarregando]="exibirCarregando" [confirmDialog]="true">
+</app-componente-basico>

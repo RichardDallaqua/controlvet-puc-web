@@ -1,0 +1,26 @@
+
+.li-legenda{
+	margin-top: 7px;
+}
+.item-ativo{
+    border: 1px solid #d5d5d5;
+    padding: 3px;
+} 
+
+.item-inativo{
+	background-color: #e8d4d4;
+    border: 1px solid #d5d5d5;
+    padding: 3px;
+}
+
+.item-exluido{
+    text-decoration:line-through !important;
+    border: 1px solid #d5d5d5;
+    padding: 3px;
+} 
+
+.item-icone{
+    width: 28px;
+    text-align: center;
+    font-size: 14px;
+}

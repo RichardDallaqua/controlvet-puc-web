@@ -1,0 +1,72 @@
+.logo{
+    height:39px;
+}
+
+
+.navbar-logus .navbar-brand {
+    color: #0e314e;
+}
+
+
+.navbar-logus .navbar-nav .nav-link {
+    color: #0e314e;
+}
+
+.border-bottom {
+    border-bottom: 1px solid #cccccc !important;
+}
+
+.navbar-wrapper{
+    margin-left: 41%;
+}
+
+.nav-border{
+    border-bottom: 1px solid #1b1b1b30;
+}
+
+.main-panel {
+    position: relative;
+    float: right;
+    width: calc(100% - 860px) !important;
+}
+
+.btn-esconder-menu{
+    margin-left: -60px;
+    border: 1px solid #353535;
+    background-color: #6cb44d;
+    height: 30px;
+    width: 30px;
+    padding-left: 2px;
+    padding-top: 3px;
+}
+
+.btn-expandir-menu{   
+    border: 1px solid #353535;
+    background-color: #6cb44d;
+    height: 30px;
+    width: 30px;
+    padding-left: 2px;
+    padding-top: 3px;     
+}
+
+.btn-esconder-menu:hover{
+    background-color: #6cb44d;
+    border: 1px solid #353535;
+    box-shadow: 3px 2px 7px rgba(0,0,0,0.5);
+}
+
+.btn-espandir-menu:hover{
+    background-color: #6cb44d;
+    border: 0.5px solid #353535;
+    box-shadow: 3px 2px 7px rgba(0,0,0,0.5);
+}
+
+@media screen and (max-width: 991px) {
+    .btn-espandir-menu {
+        margin-left: 10px;
+    } 
+
+    .btn-esconder-menu {
+        margin-left: -67px;
+    } 
+}

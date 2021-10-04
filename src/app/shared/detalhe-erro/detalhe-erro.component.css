@@ -1,0 +1,8 @@
+.ui-messages-detalher-erro {
+    border: 1px solid #ffe9b5 !important;
+    margin: .5em 0;
+    padding: 1em 1em 1em .5em;
+    position: relative;
+    background-color: #ffe9b5 !important;
+    border-radius: 4px !important;
+}
