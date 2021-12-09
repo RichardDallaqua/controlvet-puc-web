@@ -63,7 +63,7 @@ export class UsuarioComponent implements OnInit {
       let retorno: any;
       retorno = res;
       for (let item of retorno) {
-        this.perfil.push({ label: (item.id + " - " + item.descricao), value: item.id });
+        this.perfil.push({ label: (item.descricao), value: item.id });
       }
     }, err => {
       this.util.exibirMensagemSobreposicao(tipoMensagem.error, 'Atenção', "Erro interno, contate o suporte: " + err.error);

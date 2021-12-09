@@ -1,3 +1,49 @@
-<i class="fa fa-exclamation-triangle" aria-hidden="true"></i> 
-<label style="color: red;"> Ops... Está funcionalidade só será disponibilizada na entrega do Módulo C na Sprint 2. Aguarde só mais um pouquinho... </label>
-<i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+<app-titulo-tela [titulo]="'Relatórios Financeiro'"></app-titulo-tela>
+
+<!-- Filtros Tela -->
+<div class="form">
+    <div class="row borda-filtro" >
+        <div class="col-lg-12 filtro" data-toggle="collapse" data-target="#filtroPesquisa" (click)="util.focusComponent('dataInicial')">
+            <div class="float-right">
+                <small class="filtro-pesquisa">Filtros para Pesquisa ↓
+                </small>
+            </div>
+        </div>
+        <div class="col-lg-12 collapse" id="filtroPesquisa">
+            <div class="row ">
+                <div class="col-xl-3">
+                    <div class="form-group">
+                        Data Inicial
+                        <input type="text" class="form-control" mask="00/00/0000" [dropSpecialCharacters]="false" [(ngModel)]="pesquisa.dataInicial" name="dataInicial" id="dataInicial">
+                        <span id="dataInicialFiltro-error" class="error"></span>
+                    </div>
+                </div>    
+                <div class="col-xl-3">
+                    <div class="form-group">
+                        Data Final
+                        <input type="text" class="form-control" mask="00/00/0000" [dropSpecialCharacters]="false" [(ngModel)]="pesquisa.dataFinal" name="dataFinal" id="dataFinal">
+                        <span id="dataFinalFiltro-error" class="error"></span>
+                    </div>
+                </div>          
+            </div>
+            <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 btn-pesquisar">
+                <div class="form-group-btn">
+                    <hr>
+                    <button type="button" (click)="btnPesquisar()"  class="btn btn-primary btn float-right">Pesquisar</button>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <div style="width: 70%; height: 70%; margin-left: auto; margin-right: auto;">
+        <canvas baseChart
+            [datasets]="data"
+            [options]="options"
+            [labels]="labels"
+            [type]="'bar'">
+        </canvas>
+    </div>
+</div>
+

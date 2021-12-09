@@ -49,4 +49,8 @@ export class ProdutoService {
     ativarRemoverDados(idProduto): Observable<any> {
         return this.http.put(`${ URL_API }/produto/disableOrEnableById/${idProduto}`, null);
     }
+
+    buscaProdutoPorId(idProduto): Observable<any>{
+        return this.http.get(`${ URL_API }/produto/findById/${idProduto}`);       
+    }
 }

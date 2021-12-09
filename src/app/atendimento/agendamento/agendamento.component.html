@@ -1,3 +1,188 @@
-<i class="fa fa-exclamation-triangle" aria-hidden="true"></i> 
-<label style="color: red;"> Ops... Está funcionalidade só será disponibilizada na entrega do Módulo C na Sprint 2. Aguarde só mais um pouquinho... </label>
-<i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+<!-- Titulo da tela.-->
+<app-titulo-tela [titulo]="'Agendamento'" [subTitulo]="titulo"></app-titulo-tela>
+
+<!-- Filtros Tela -->
+<div class="form" [hidden]="!exibirConsulta">
+    <div class="row borda-filtro" >
+        <div class="col-lg-12 filtro" data-toggle="collapse" data-target="#filtroPesquisa" (click)="util.focusComponent('dataInicial')">
+            <div class="float-right">
+                <small class="filtro-pesquisa">Filtros para Pesquisa ↓
+                </small>
+            </div>
+        </div>
+        <div class="col-lg-12 collapse" id="filtroPesquisa">
+            <div class="row ">
+                <div class="col-xl-3">
+                    <div class="form-group">
+                        Data do Agendamento
+                        <input pTooltip="dataNascimento" type="text" mask="00/00/0000" [dropSpecialCharacters]="false" [(ngModel)]="pesquisa.dataAgendamento" class="form-control" placeholder="DD/MM/YYYY" 
+                        name="dataAgendamentoFiltro" id="dataAgendamentoFiltro" #datanascimento>
+                        <span id="dataAgendamentoFiltro-error" class="error"></span>
+                    </div>
+                </div>        
+            </div>
+            <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 btn-pesquisar">
+                <div class="form-group-btn">
+                    <hr>
+                    <button type="button" (click)="btnPesquisar()"  class="btn btn-primary btn float-right">Pesquisar</button>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Grid Pesquisa -->
+    <div class="form">
+        <div class="col-lg-12">
+            <div class="row">
+                <p-table class="grid1" selectionMode="single" [value]="gridVo" [columns]="colunas" [responsive]="true"
+                    emptyMessage="Não existem registros!" [paginator]="true" [rows]="10"
+                    sortMode="multiple">
+                    <ng-template pTemplate="header" let-columns>
+                        <tr class="align-text-center">
+                            <th *ngFor="let col of columns" pTooltip="{{col.header}}" tooltipPosition="top"> 
+                                {{col.header}}  
+                                <p-sortIcon [field]="col.field" ariaLabel="Activate to sort" ariaLabelDesc="Activate to sort in descending order"
+                                    ariaLabelAsc="Activate to sort in ascending order"></p-sortIcon>
+                            </th>
+                            <th style="width: 70px;" class="table-alterar">Ações</th>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-gridVo let-columns="columns">
+                        <tr class="{{(gridVo.dataDesativacao == null ? '' : 'disabled-account-row')}}">
+                            <td (dblclick)="btnAlterarDados(gridVo)" tooltipPosition="top">{{gridVo.horaAgendamento}}</td>
+                            <td (dblclick)="btnAlterarDados(gridVo)" tooltipPosition="top"> {{gridVo.nomeTutor}}</td>     
+                            <td (dblclick)="btnAlterarDados(gridVo)" tooltipPosition="top"> {{gridVo.nomeAnimal}}</td>
+                            <td (dblclick)="btnAlterarDados(gridVo)" tooltipPosition="top"> {{gridVo.descricaoSala}}</td>  
+                            <td (dblclick)="btnAlterarDados(gridVo)" tooltipPosition="top"> {{gridVo.descricaoProcedimento}}</td>        
+                            <td (dblclick)="btnAlterarDados(gridVo)" tooltipPosition="top"> {{gridVo.observacao}}</td>
+                            <td class="table-acao">
+                                <ul class="navbar-nav ul-action">
+                                    <li class="nav-item dropdown">
+                                        <div class="btn-action" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                                            aria-haspopup="true" aria-expanded="false">
+                                            <i class="icon-action-first fa fa-ellipsis-v"></i>
+                                        </div>
+                                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                                            <a class="dropdown-item" (click)="btnAlterarDados(gridVo)"> <i class="icon-action fa fa-pencil-square-o"></i>Editar</a>    
+                                            <a class="dropdown-item" (click)="btnExcluir(gridVo)"> <i class="icon-action fa fa-trash"></i>Excluir</a>        
+                                        </div>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="emptymessage" let-gridVo let-columns="columns">
+                        <tr [attr.colspan]="gridVo">
+                            <td [colSpan]="7" class="table-empty">
+                                Não existem registros!
+                            </td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <hr>
+                <div class="form-group-btn">
+                    <button type="button" (click)="btnNovoDados()" class="btn btn-primary btn float-right">Novo</button>
+                    <button type="button" (click)="btnGridCSV()" class="btn btn-primary btn btn-cancelar float-right">Gerar CSV</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>    
+
+<!-- Edição ou Inserção  -->
+<div class="form" [hidden]="!exibirEdicao">
+    <div class="row">
+        <div class="col-xl-2">
+            <label>Data
+                <span class="ask-obrigatorio">*</span>
+            </label>
+            <input pTooltip="dataAgendamento" type="text" mask="00/00/0000" [dropSpecialCharacters]="false" [(ngModel)]="agendamento.dataAgendamento" class="form-control" placeholder="DD/MM/YYYY" 
+            name="dataAgendamento" id="dataAgendamento" #dataagendamento>            
+            <span id="data-error" class="error"></span>
+        </div>
+        <div class="col-xl-2">
+            <label>Hora
+                <span class="ask-obrigatorio">*</span>
+            </label>
+            <input pTooltip="hora" type="text" mask="99:99" [dropSpecialCharacters]="false" [(ngModel)]="agendamento.horaAgendamento" 
+              class="form-control" placeholder="Duração" name="horaAgendamento" id="duracaoProcedimento" #duracaoProcedimento>
+            <span id="nome-error" class="error"></span>
+        </div>
+        <div class="col-xl-4" [hidden]="!isInsercao">
+            <label>Tutor
+                <span class="ask-obrigatorio">*</span>
+            </label>
+
+            <p-dropdown [filter]="true" [filterBy]="'label'" pTooltip="Tutor" id="cbtutor" name="cbtutor" [options]="tutores" [(ngModel)]="tutorSelecionado" [style]="{'width':'100%'}"
+            placeholder="Selecione..." #cbtutor (click)="carregarAnimaisTutor()"></p-dropdown>
+        </div>
+        <div class="col-xl-4" [hidden]="isInsercao">
+            <label>Tutor
+                <span class="ask-obrigatorio">*</span>
+            </label>
+            <input pTooltip="nomeTutor" type="text"  [(ngModel)]="agendamento.nomeTutor" 
+             class="form-control" placeholder="NomeTutor" name="nomeTutor" id="nomeTutor" #nomeTutor disabled>
+        </div>
+        <div class="col-xl-4" [hidden]="!isInsercao">
+            <label>Animal
+                <span class="ask-obrigatorio">*</span>
+            </label>
+            <p-dropdown pTooltip="Animal" id="cbanimal" name="cbanimal" [options]="animais" [(ngModel)]="animalSelecionado" [style]="{'width':'100%'}"
+            placeholder="Selecione..." #cbanimal></p-dropdown>
+            <span id="cbanimal-error" class="error"></span>
+        </div>
+        <div class="col-xl-4" [hidden]="isInsercao">
+            <label>Animal
+                <span class="ask-obrigatorio">*</span>
+            </label>
+            <input pTooltip="nomeAnimal" type="text"  [(ngModel)]="agendamento.nomeAnimal" 
+             class="form-control" placeholder="Nome Animal" name="nomeAnimal" id="nomeAnimal" #nomeAnimal disabled>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xl-2">
+            <label>Procedimento
+                <span class="ask-obrigatorio">*</span>
+            </label>
+            <p-dropdown pTooltip="Procedimento" id="cbprocedimento" name="cbprocedimento" [options]="procedimentos" [(ngModel)]="procedimentoSelecionado" [style]="{'width':'100%'}"
+            placeholder="Selecione..." #cbperfil></p-dropdown>
+            <span id="cbprocedimento-error" class="error"></span>
+        </div>
+        <div class="col-xl-2">
+            <label>Sala
+                <span class="ask-obrigatorio">*</span>
+            </label>
+            <p-dropdown pTooltip="Sala" id="cbsala" name="cbsala" [options]="salas" [(ngModel)]="salaSelecionada" [style]="{'width':'100%'}"
+            placeholder="Selecione..." #cbperfil></p-dropdown>
+            <span id="cbsala-error" class="error"></span>
+        </div>
+        <div class="col-xl-8">
+            <label>Observação</label>
+            <input pTooltip="Observacao" type="text"  [(ngModel)]="agendamento.observacao" 
+              class="form-control" placeholder="Observação" name="observacao" id="observacao" #observacao>
+            <span id="observacao-error" class="error"></span>
+        </div>                                
+    </div>
+    
+    <div class="row">
+        <div class="col-lg-12">
+            <hr>
+            <div class="form-group-btn">
+                <button type="button" (click)="btnSalvarDados()" class="btn btn-primary btn float-right">Salvar</button>
+                <button type="button" (click)="btnVoltarTelaPrincipal()" class="btn btn-primary btn btn-cancelar float-right">Voltar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Mensagem de sobreposição.-->
+<!-- Mensagem de confirmação -->
+<!-- Info carregando -->
+<app-componente-basico [msg]="msgs" [exibirCarregando]="exibirCarregando" [confirmDialog]="true"></app-componente-basico>

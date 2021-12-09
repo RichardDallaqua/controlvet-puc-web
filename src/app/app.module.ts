@@ -35,6 +35,10 @@ import { ProdutoService } from './cadastro/produto/produto.service';
 import { ProcedimentoService } from './cadastro/procedimento/procedimento.service';
 import { SalaService } from './cadastro/sala/sala.service'
 import { TutorService } from './cadastro/tutor/tutor.service';
+import { AtendimentoService } from './relatorios/relatorio-atendimento/relatorio-atendimento.service';
+import { AgendamentoService } from './atendimento/agendamento/agendamento.service';
+import { ConsultaService } from './atendimento/consulta/consulta.service';
+import { FinanceiroService } from './relatorios/relatorio-financeiro/relatorio-financeiro.service';
 
 //Terceiros
 import { TableModule } from 'primeng/table';
@@ -48,6 +52,9 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog'
 import { ProgressSpinnerModule} from 'primeng/progressspinner';
 import { ToastModule } from 'primeng/toast';
 import { NgxMaskModule, IConfig } from 'ngx-mask';
+import { NgChartsModule } from 'ng2-charts';
+import { AutoCompleteModule } from 'primeng/autocomplete';
+import { SpinnerModule } from 'primeng/spinner';
 
 const maskConfig: Partial<IConfig> = {
   validation: false,
@@ -74,7 +81,7 @@ const maskConfig: Partial<IConfig> = {
     TutorComponent,
     AgendamentoComponent,
     ConsultaComponent,
-    RelatorioFinanceiroComponent
+    RelatorioFinanceiroComponent,
   ],
   imports: [
     BrowserModule,
@@ -89,7 +96,10 @@ const maskConfig: Partial<IConfig> = {
     ConfirmDialogModule,    
     ProgressSpinnerModule,
     ToastModule,
-    NgxMaskModule.forRoot(maskConfig)
+    NgxMaskModule.forRoot(maskConfig),
+    NgChartsModule,
+    AutoCompleteModule,
+    SpinnerModule
   ],
   providers: [
     LoginService,
@@ -102,7 +112,11 @@ const maskConfig: Partial<IConfig> = {
     ProcedimentoService,
     ProdutoService,
     SalaService,
-    TutorService
+    TutorService,
+    AtendimentoService,
+    AgendamentoService,
+    ConsultaService,
+    FinanceiroService,
   ],
   bootstrap: [AppComponent]
 })

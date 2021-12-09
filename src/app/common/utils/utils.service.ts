@@ -692,5 +692,10 @@ export class UtilsService {
         var primeiroDia = new Date(date.getFullYear(), date.getMonth(), 1);
         return new Date(date.getFullYear(), date.getMonth() + 1, 0);
     }
+
+    stringReplace(string, charAntigo, charNovo){     
+        return string.toString().replace(charAntigo,charNovo);
+    }
+
 }
 

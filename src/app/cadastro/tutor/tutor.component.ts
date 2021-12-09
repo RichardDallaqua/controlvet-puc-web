@@ -218,7 +218,6 @@ export class TutorComponent implements OnInit {
       status = false;
     }
 
-    debugger
     if (!this.util.validaCPF(this.modelTutor.cpf)) {
       this.msgs = [];
       this.util.exibirMensagemSobreposicao(tipoMensagem.warn, "Atenção", "O CPF informado não é válido.");
@@ -244,7 +243,11 @@ export class TutorComponent implements OnInit {
   adicionarAnimal() {
     this.isEdicaoAnimal = false;
     let retorno = this.animalGridVo;   
-    this.modelTutor.idMaxItem = this.modelTutor.idMaxItem + 1;
+    if (this.modelTutor.idMaxItem == undefined) {
+      this.modelTutor.idMaxItem = 1
+    } else {
+      this.modelTutor.idMaxItem = this.modelTutor.idMaxItem + 1;
+    }
     this.idAnimal = this.modelTutor.idMaxItem;
     this.modelAnimal.id = this.idAnimal;
 

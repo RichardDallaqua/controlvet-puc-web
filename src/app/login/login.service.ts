@@ -38,7 +38,7 @@ import { UtilsService, URL_API } from '../common/utils/utils.service';
         localStorage.setItem('usuario-acessaProcedimento', resposta.acessaProcedimento);  
         localStorage.setItem('usuario-acessaVeterinario', resposta.acessaVeterinario);  
         localStorage.setItem('usuario-acessaTutor', resposta.acessaTutor); 
-        debugger
+
         localStorage.setItem('usuario-acessaProduto', resposta.acessaProduto);
     }
      
