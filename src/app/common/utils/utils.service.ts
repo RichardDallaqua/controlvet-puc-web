@@ -693,6 +693,10 @@ export class UtilsService {
         return new Date(date.getFullYear(), date.getMonth() + 1, 0);
     }
 
+    primeiroDiaMes(date):any{
+        return new Date(date.getFullYear(), date.getMonth(), 1);
+    }
+
     stringReplace(string, charAntigo, charNovo){     
         return string.toString().replace(charAntigo,charNovo);
     }

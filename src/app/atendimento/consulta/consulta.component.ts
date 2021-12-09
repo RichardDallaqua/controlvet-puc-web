@@ -93,7 +93,7 @@ export class ConsultaComponent implements OnInit {
   }
 
   salvarConsulta() {
-
+    debugger;
     this.exibirCarregando = true;
     this.consulta.valorTotal = this.util.formatarDecimalParaCalculo(this.consulta.valorTotal);  
     this.consulta.itensConsultaDto = this.itensGridVo;
@@ -322,6 +322,7 @@ export class ConsultaComponent implements OnInit {
   };
 
   carregarValorUnitario(){
+    debugger
     if (this.produtoSelecionado !== undefined && this.produtoSelecionado !== 0) {
       this.produtoService.buscaProdutoPorId(this.produtoSelecionado).subscribe(res => {
         let retorno: any;
@@ -415,4 +416,6 @@ export class ConsultaComponent implements OnInit {
     this.itensConsulta.quantidade = retorno.quantidade;
     this.itensConsulta.valorTotal = retorno.valorTotal;
   }
+
+
 }
